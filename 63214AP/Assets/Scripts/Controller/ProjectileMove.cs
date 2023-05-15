@@ -1,10 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;                  //Tween을 쓰기 위해 선언
+
 
 public class ProjectileMove : MonoBehaviour
 {
+
+    public bool isPunch = false;                        //상자가 펀칭 중인지 확인하는 변수
+
     public Vector3 launchDirection;
+
+    public enum PROJECTILETYPE
+    {
+        PLAYER,
+        ENEMY
+    }
+
+    public PROJECTILETYPE projectiletype = PROJECTILETYPE.PLAYER;
+
     private void OnCollisionEnter(Collision collision)
     {   //벽에 충돌시 파괴
         if(collision.gameObject.tag == "Wall")
@@ -27,10 +41,17 @@ public class ProjectileMove : MonoBehaviour
             Destroy(this.gameObject);
         }
         //몬스터에게 충돌시
-        if (other.gameObject.tag == "Monster")
+        if (other.gameObject.tag == "Monster" && projectiletype == PROJECTILETYPE.PLAYER)
         {
             //몬스터에게 데미지를 주고 사라진다
             other.gameObject.GetComponent<MonsterController>().Damaged(1);
+            Destroy(this.gameObject);
+        }
+        //플레이어에게 충돌시
+        if (other.gameObject.tag == "Player" && projectiletype == PROJECTILETYPE.ENEMY)
+        {
+            //플레이어에게 데미지를 주고 사라진다
+            other.gameObject.GetComponent<PlayerController>().Damaged(1);
             Destroy(this.gameObject);
         }
     }

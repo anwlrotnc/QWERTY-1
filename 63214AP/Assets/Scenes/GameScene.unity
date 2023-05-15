@@ -674,6 +674,7 @@ MonoBehaviour:
   moveSpeed: 6
   PlayerPivot: {fileID: 1537164581}
   projectileController: {fileID: 58601901}
+  Player_Hp: 5
 --- !u!1 &1920618237
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e57a112440ca64e9ce0537e212d9f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterTemp: {fileID: 1952266800476060732, guid: 0978572e0a3de9b43be8f352c143f47a, type: 3}
+  MonsterTemp: {fileID: 6851634181422405673, guid: caaf019c37f1c744fa3a6fac88fc3f22, type: 3}
 --- !u!4 &1920618239
 Transform:
   m_ObjectHideFlags: 0
@@ -773,6 +774,10 @@ PrefabInstance:
     - target: {fileID: 2904904818354782529, guid: ffe91bd435a1e6d4d84318793a0edf8c, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904904818354782529, guid: ffe91bd435a1e6d4d84318793a0edf8c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2904904818354782529, guid: ffe91bd435a1e6d4d84318793a0edf8c, type: 3}
       propertyPath: m_TagString
